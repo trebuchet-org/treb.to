@@ -1,0 +1,35 @@
+{
+  "name": "treb-website",
+  "version": "1.0.0",
+  "description": "Presentation website for treb smart contract deployment tool",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'Static site - no build step required'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
+  },
+  "keywords": [
+    "cli",
+    "command-line",
+    "tool",
+    "presentation",
+    "website",
+    "static",
+    "minimalistic"
+  ],
+  "author": "trebuchet-org",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trebuchet-org/treb-cli"
+  },
+  "homepage": "https://treb.to",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

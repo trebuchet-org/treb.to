@@ -1,0 +1,6 @@
+# Netlify redirects file
+/github https://github.com/trebuchet-org/treb-cli 301
+/docs https://github.com/trebuchet-org/treb-cli/blob/main/README.md 301
+
+# SPA fallback
+/* /index.html 200 
