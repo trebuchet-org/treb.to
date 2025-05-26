@@ -93,14 +93,15 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 4rem 0;
+    padding: 6rem 0;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 80vh;
 }
 
 .hero .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 2fr 4fr;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -158,6 +159,8 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     font-family: var(--font-mono);
+    width: 100%;
+    max-width: 100%;
 }
 
 .terminal-header {
@@ -197,10 +200,50 @@ body {
 }
 
 .terminal-body {
-    padding: 1.5rem;
+    padding: 10px 10px;
+    background: #1e293b;
     color: #e2e8f0;
     font-size: 0.875rem;
     line-height: 1.6;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Asciicast player integration */
+.terminal-body asciinema-player {
+    width: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.terminal-body .asciinema-player {
+    width: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Handle the iframe inside the player */
+.terminal-body asciinema-player iframe,
+.terminal-body .asciinema-player iframe {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: calc(100vh * 0.4 - 20px) !important;
+    max-height: 400px !important;
+}
+
+/* Remove margin from injected divs */
+.terminal-body > div {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .terminal-line {
@@ -232,7 +275,7 @@ body {
 /* Features */
 .features {
     padding: 6rem 0;
-    background: var(--surface);
+    background: var(--background);
 }
 
 .features-list {
@@ -278,7 +321,7 @@ body {
 /* Installation */
 .installation {
     padding: 6rem 0;
-    background: var(--background);
+    background: var(--surface);
 }
 
 .install-methods {
@@ -439,6 +482,11 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
+    
     .hero .container {
         grid-template-columns: 1fr;
         gap: 2rem;

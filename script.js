@@ -69,12 +69,25 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            
+            // Special case for "Get Started" button - scroll to installation
+            if (targetId === '#installation' && this.textContent.trim() === 'Get Started') {
+                const targetSection = document.querySelector('#installation');
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                return;
+            }
+            
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
                 const header = document.querySelector('.header');
                 const headerHeight = header ? header.offsetHeight : 0;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                const targetPosition = targetSection.offsetTop - headerHeight - 80;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -107,8 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.transition = 'transform 0.3s ease-in-out';
     }
 
-    // Terminal typing animation
-    animateTerminal();
+    // Terminal typing animation removed - using asciicast instead
 });
 
 // Terminal typing animation
