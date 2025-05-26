@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = targetSection.offsetTop - headerHeight - 20;
                 
                 window.scrollTo({
@@ -83,26 +84,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add scroll effect to header
+    // Add scroll effect to header (if it exists)
     const header = document.querySelector('.header');
-    let lastScrollTop = 0;
+    if (header) {
+        let lastScrollTop = 0;
 
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
 
-    // Add transition to header
-    header.style.transition = 'transform 0.3s ease-in-out';
+        // Add transition to header
+        header.style.transition = 'transform 0.3s ease-in-out';
+    }
 
     // Terminal typing animation
     animateTerminal();
